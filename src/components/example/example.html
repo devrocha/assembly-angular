@@ -1,0 +1,25 @@
+<div>Olá mundo!</div>
+<input type="text" [(ngModel)]="title">
+<button (click)="changeTitle()" [disabled]="isActive">Clica em mim!</button>
+<div>{{ title }}</div>
+<div>{{ amount | currency}}</div>
+<div>{{ today | date}}</div>
+<div>{{ 10 + 10 }}</div>
+
+@if (isActive) {
+  <div>isActive é true</div>
+} @else {
+  <div>isActive é false</div>
+}
+
+
+@for(item of peoples; track item.id; let idx = $index){
+  <ul>
+    <li>#{{ idx+1 }} {{ item.name }}</li>
+  </ul>
+}
+
+
+<div>
+  O valor do service é: {{  myServiceValue }}
+</div>
