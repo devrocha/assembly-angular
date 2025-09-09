@@ -1,3 +1,15 @@
 <div>
-  O valor do service é: {{ myServiceValue }}
+  O valor do signal count é: {{ count() }}
 </div>
+<div>
+  O doubleCount computed é: {{doubleCount()}}
+</div>
+<div>
+  O doubleCountVariable é: {{doubleCountVariable}}
+</div>
+
+
+<!-- <button (click)="setValueCount(5)">Atualizar</button> -->
+<button (click)="updateValueCount(2)">Update</button>
+<button (click)="doubleCountFunction()">Double</button>
+

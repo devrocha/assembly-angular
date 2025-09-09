@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, computed, inject, signal, effect } from '@angular/core';
 import { FirstService } from '../../services/first-sevice/first-service';
 
 @Component({
@@ -10,5 +10,22 @@ import { FirstService } from '../../services/first-sevice/first-service';
 export class User {
   private firstService = inject(FirstService)
 
+  count = signal(2)
+  doubleCountVariable = 0
+
   myServiceValue = this.firstService.getFirstService()
+
+  doubleCount = computed(() => this.count() * 2);
+
+  doubleCountFunction() {
+    this.doubleCountVariable = this.count() * 2
+  }
+
+  setValueCount(value: number) {
+    this.count.set(value)
+  }
+
+  updateValueCount(value: number) {
+    this.count.update(oldValue => oldValue + value)
+  }
 }
